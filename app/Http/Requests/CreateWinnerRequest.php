@@ -24,7 +24,7 @@ class CreateWinnerRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'  => 'required|min:5',
+            'name'  => 'required|min:5|unique:winners',
             'prize' => 'required|min:5'
         ];
     }

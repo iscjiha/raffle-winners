@@ -15,6 +15,7 @@ class WinnerController extends Controller
      */
     public function index()
     {
+        // Get winners descending order
         $winners = Winner::latest()->get();
 
         return view('winners.index', compact('winners'));
@@ -38,7 +39,9 @@ class WinnerController extends Controller
      */
     public function store(CreateWinnerRequest $request)
     {
-        dd($request->all());
+        $winner = Winner::create($request->only(['name', 'prize']));
+
+        return back()->with('message', "Ganador: <b>$winner->name</b> registrado correctamente.");
     }
 
     /**
@@ -81,9 +84,11 @@ class WinnerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Winner $winner)
     {
-        //
+        $winner->delete();
+
+        return back()->with('message', "Ganador eliminado correctamente.");
     }
 
     /**
