@@ -98,6 +98,9 @@ class WinnerController extends Controller
      */
     public function projection()
     {
-        //
+        // Get winners descending order
+        $winners = Winner::latest()->get();
+
+        return view('winners.projection', compact('winners'));
     }
 }
