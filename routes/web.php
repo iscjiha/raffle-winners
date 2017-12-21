@@ -1,4 +1,7 @@
 <?php
 
+// WinnerController Routes
+
 Route::resource('winners', 'WinnerController');
-Route::get('/', 'WinnerController@index');
+
+Route::get('/', 'WinnerController@projection');

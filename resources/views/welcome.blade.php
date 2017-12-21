@@ -7,6 +7,6 @@
     <title>Ganadores de Rifa</title>
 </head>
 <body>
-
+    Aqui se mostraran los ganadores...
 </body>
 </html>

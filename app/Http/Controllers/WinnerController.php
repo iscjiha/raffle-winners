@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateWinnerRequest;
+use App\Winner;
 use Illuminate\Http\Request;
 
 class WinnerController extends Controller
@@ -13,7 +15,9 @@ class WinnerController extends Controller
      */
     public function index()
     {
-        //
+        $winners = Winner::latest()->get();
+
+        return view('winners.index', compact('winners'));
     }
 
     /**
@@ -32,9 +36,9 @@ class WinnerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateWinnerRequest $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
@@ -78,6 +82,16 @@ class WinnerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
+    {
+        //
+    }
+
+    /**
+     * page to project winners
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function projection()
     {
         //
     }
